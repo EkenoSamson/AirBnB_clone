@@ -14,7 +14,7 @@ class BaseModel(object):
 
     def __str__(self):
         """ print: [<class name>] (<self.id>) <self.__dict__>"""
-        return ("[{}] ({}) {}>".format(self.__class__.__name__,
+        return ("[{}] ({}) {}>".format(type(self),
                 self.id, self.__dict__))
 
     def save(self):
@@ -24,8 +24,9 @@ class BaseModel(object):
     def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__ """
         dict = self.__dict__.copy()
-        dict["__class__"] = self.__class__.__name___
+        dict["__class__"] = type(self)
         dict["created_at"] = self.created_at.isoformat()
         dict["updated_at"] = self.updated_at.isoformat()
 
         return dict
+
