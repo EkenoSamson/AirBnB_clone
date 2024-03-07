@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ module contains the parent class BaseModel"""
 import uuid
-import datetime
+from datetime import datetime
 
 
 class BaseModel(object):
